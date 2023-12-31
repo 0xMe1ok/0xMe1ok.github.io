@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0xMe1ok in da Web!</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+</head>
+<body>
+  <div id = "content"><h1>Me1ok</h1></div>
+  <script>
+    let img;
+
+    function preload() {
+      img = loadImage('images/chipi-chapa.gif');
+    }
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight, WEBGL);
+      stroke(255, 255, 255, 255);
+      strokeWeight(5);
+
+      rectMode(CENTER);
+      ortho(-width / 2, width / 2, -height / 2, height / 2, 10, 2000);
+
+      fill(110);
+    }
+
+    function draw() {
+      background(255);
+      directionalLight(255, 255, 255, -PI * 0.3, PI * 0.3, -PI * 0.6);
+      translate(mouseX-460, mouseY-400, 0);
+      rotateX(map(mouseX, 0, width, -1, 1));
+      rotateY(map(mouseY, 0, height, -1, 1));
+      texture(img);
+      box(100);
+    }
+
+  </script>
+</body>
+</html>
